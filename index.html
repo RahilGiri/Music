@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaNeh Musify - Your Music Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .playlist-list {
+            margin-top: 32px;
+            padding: 0 16px;
+        }
+        
+        .playlist-list h3 {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .content h1 {
+            margin: 24px 0;
+            font-size: 2rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .recently-played, .featured-playlists {
+            margin-bottom: 32px;
+        }
+
+        .recently-played h2, .featured-playlists h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .track-info h4 {
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .track-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .auth-form {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 32px;
+            background: var(--background-dark);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--text-secondary);
+            border-radius: 8px;
+            background: transparent;
+            color: var(--text-primary);
+        }
+
+        .form-switch {
+            text-align: center;
+            margin-top: 16px;
+            color: var(--text-secondary);
+        }
+
+        .form-switch a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo" style="padding: 24px 16px;">
+                <h2><span class="highlight">RaNeh</span> Musify</h2>
+            </div>
+            <nav style="margin-bottom: 32px;">
+                <ul>
+                    <li class="active" style="border-radius: 8px;"><i class="fas fa-home"></i> Home</li>
+                    <li style="border-radius: 8px;"><i class="fas fa-search"></i> Search</li>
+                    <li style="border-radius: 8px;"><i class="fas fa-book"></i> Your Library</li>
+                    <li style="border-radius: 8px;"><i class="fas fa-plus-square"></i> Create Playlist</li>
+                    <li style="border-radius: 8px;"><i class="fas fa-heart"></i> Liked Songs</li>
+                </ul>
+            </nav>
+            <div class="playlist-list">
+                <h3>Playlists</h3>
+                <ul>
+                    <li style="padding: 12px; border-radius: 8px;">My Playlist #1</li>
+                    <li style="padding: 12px; border-radius: 8px;">Favorite Songs</li>
+                    <li style="padding: 12px; border-radius: 8px;">Rock Classics</li>
+                    <li style="padding: 12px; border-radius: 8px;">Chill Vibes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="topbar" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0;">
+                <div class="auth-buttons">
+                    <button class="login-btn">Login</button>
+                    <button class="signup-btn">Sign Up</button>
+                </div>
+                <div class="user-menu">
+                    <div class="profile-dropdown" style="position: relative;">
+                        <button class="profile-btn" style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-user"></i>
+                            <span>Guest</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" style="position: absolute; top: 100%; right: 0; margin-top: 8px;">
+                            <a href="#" class="logout-btn" style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sign out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login Form -->
+            <div class="auth-form login-form">
+                <h2>Login to RaNeh Musify</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" id="loginName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="loginEmail" placeholder="Email Address" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Login</button>
+                    <p class="form-switch">Don't have an account? <a href="#" class="switch-to-signup">Sign up</a></p>
+                </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="auth-form signup-form">
+                <h2>Create Account</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <input type="text" id="signupName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="signupEmail" placeholder="Email Address" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Sign Up</button>
+                    <p class="form-switch">Already have an account? <a href="#" class="switch-to-login">Login</a></p>
+                </form>
+            </div>
+
+            <div class="content">
+                <h1>Welcome to RaNeh Musify</h1>
+                <div class="recently-played">
+                    <h2>Recently Played</h2>
+                    <div class="card-grid">
+                        <div class="card" style="background: var(--card-background); transition: transform 0.3s;">
+                            <img src="https://via.placeholder.com/150" alt="Album Cover" style="width: 100%; border-radius: 8px; margin-bottom: 12px;">
+                            <h4 style="margin-bottom: 4px;">Album Name</h4>
+                            <p style="color: var(--text-secondary);">Artist Name</p>
+                        </div>
+                        <!-- More cards here -->
+                    </div>
+                </div>
+
+                <div class="featured-playlists">
+                    <h2>Featured Playlists</h2>
+                    <div class="card-grid">
+                        <div class="card" style="background: var(--card-background); transition: transform 0.3s;">
+                            <img src="https://via.placeholder.com/150" alt="Playlist Cover" style="width: 100%; border-radius: 8px; margin-bottom: 12px;">
+                            <h4 style="margin-bottom: 4px;">Playlist Name</h4>
+                            <p style="color: var(--text-secondary);">Playlist Description</p>
+                        </div>
+                        <!-- More cards here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Player -->
+    <div class="player" style="padding: 16px 32px;">
+        <div class="now-playing" style="display: flex; align-items: center; gap: 16px;">
+            <img src="https://via.placeholder.com/60" alt="Current Track" style="border-radius: 8px;">
+            <div class="track-info">
+                <h4>Track Name</h4>
+                <p>Artist Name</p>
+            </div>
+            <button class="like-btn" style="background: none; color: var(--text-secondary);"><i class="far fa-heart"></i></button>
+        </div>
+        
+        <div class="player-controls" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div class="control-buttons" style="display: flex; align-items: center; gap: 24px;">
+                <button style="background: none; color: var(--text-secondary);"><i class="fas fa-random"></i></button>
+                <button style="background: none; color: var(--text-secondary);"><i class="fas fa-step-backward"></i></button>
+                <button class="play-btn"><i class="fas fa-play"></i></button>
+                <button style="background: none; color: var(--text-secondary);"><i class="fas fa-step-forward"></i></button>
+                <button style="background: none; color: var(--text-secondary);"><i class="fas fa-redo"></i></button>
+            </div>
+            <div class="progress-bar" style="width: 100%; max-width: 500px; display: flex; align-items: center; gap: 12px;">
+                <span class="current-time" style="color: var(--text-secondary);">0:00</span>
+                <div class="progress" style="flex: 1;">
+                    <div class="progress-filled"></div>
+                </div>
+                <span class="total-time" style="color: var(--text-secondary);">3:45</span>
+            </div>
+        </div>
+
+        <div class="volume-controls" style="display: flex; align-items: center; gap: 16px;">
+            <button style="background: none; color: var(--text-secondary);"><i class="fas fa-list"></i></button>
+            <button style="background: none; color: var(--text-secondary);"><i class="fas fa-volume-up"></i></button>
+            <div class="volume-bar" style="width: 100px;">
+                <div class="volume-filled"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
